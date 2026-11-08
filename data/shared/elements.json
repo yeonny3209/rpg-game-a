@@ -1,0 +1,135 @@
+{
+  "_comment": "4권 1.8 속성 상성표. 유리 +25%, 불리 -20%, 공허는 상성 무시. 자연 순환 불→식물→대지→물→불, 하늘·광물 순환 번개→금속→얼음→바람→번개, 빛↔어둠은 서로 강함.",
+  "elements": {
+    "advantage": 1.25,
+    "disadvantage": 0.8,
+    "ignoreAll": "void",
+    "list": [
+      {
+        "id": "fire",
+        "name": "불",
+        "color": "#ff6a3a",
+        "effect": {
+          "type": "burn",
+          "duration": 3,
+          "amount": 0.35
+        }
+      },
+      {
+        "id": "plant",
+        "name": "식물",
+        "color": "#58c060",
+        "effect": {
+          "type": "root",
+          "duration": 1.5
+        }
+      },
+      {
+        "id": "earth",
+        "name": "대지",
+        "color": "#b08850"
+      },
+      {
+        "id": "water",
+        "name": "물",
+        "color": "#4a9aff",
+        "effect": {
+          "type": "knockback",
+          "distance": 2
+        }
+      },
+      {
+        "id": "lightning",
+        "name": "번개",
+        "color": "#ffe040",
+        "effect": {
+          "type": "chain",
+          "amount": 0.5,
+          "count": 1,
+          "distance": 6
+        }
+      },
+      {
+        "id": "metal",
+        "name": "금속",
+        "color": "#b8c0cc",
+        "effect": {
+          "type": "pierce",
+          "amount": 0.15,
+          "count": 2
+        }
+      },
+      {
+        "id": "ice",
+        "name": "얼음",
+        "color": "#a8e8ff",
+        "effect": {
+          "type": "slow",
+          "duration": 2.5
+        }
+      },
+      {
+        "id": "wind",
+        "name": "바람",
+        "color": "#b8f0d0"
+      },
+      {
+        "id": "light",
+        "name": "빛",
+        "color": "#fff0a0"
+      },
+      {
+        "id": "dark",
+        "name": "어둠",
+        "color": "#7a4aa8"
+      },
+      {
+        "id": "void",
+        "name": "공허",
+        "color": "#3a2a5a"
+      }
+    ],
+    "strong": [
+      {
+        "attack": "fire",
+        "target": "plant"
+      },
+      {
+        "attack": "plant",
+        "target": "earth"
+      },
+      {
+        "attack": "earth",
+        "target": "water"
+      },
+      {
+        "attack": "water",
+        "target": "fire"
+      },
+      {
+        "attack": "lightning",
+        "target": "metal"
+      },
+      {
+        "attack": "metal",
+        "target": "ice"
+      },
+      {
+        "attack": "ice",
+        "target": "wind"
+      },
+      {
+        "attack": "wind",
+        "target": "lightning"
+      },
+      {
+        "attack": "light",
+        "target": "dark"
+      },
+      {
+        "attack": "dark",
+        "target": "light"
+      }
+    ]
+  }
+}

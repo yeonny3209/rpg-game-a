@@ -1,0 +1,156 @@
+{
+  "_comment": "4권 2.4 등급(7단계) · 2.7 랜덤 옵션 · 2.10 인벤토리 · 3.2 판매가 10%. 옵션 수치 범위는 Claude 초기값[수치]: 값은 비율(0.1 = +10%), 체력 재생만 초당 고정값.",
+  "itemRules": {
+    "grades": [
+      {
+        "id": "common",
+        "name": "커먼",
+        "color": "#9a9a9a",
+        "optionLines": 0,
+        "statMult": 1.0,
+        "valueMult": 1
+      },
+      {
+        "id": "rare",
+        "name": "레어",
+        "color": "#4a8ae8",
+        "optionLines": 1,
+        "statMult": 1.2,
+        "valueMult": 4
+      },
+      {
+        "id": "epic",
+        "name": "에픽",
+        "color": "#a060e0",
+        "optionLines": 2,
+        "statMult": 1.45,
+        "valueMult": 40
+      },
+      {
+        "id": "unique",
+        "name": "유니크",
+        "color": "#f0d040",
+        "optionLines": 3,
+        "statMult": 1.75,
+        "valueMult": 150
+      },
+      {
+        "id": "legendary",
+        "name": "전설",
+        "color": "#f08a30",
+        "optionLines": 4,
+        "statMult": 2.1,
+        "valueMult": 500
+      },
+      {
+        "id": "transcendent",
+        "name": "초월",
+        "color": "#70e0ff",
+        "optionLines": 4,
+        "statMult": 2.5,
+        "valueMult": 1500,
+        "rangeBoost": 1.25
+      },
+      {
+        "id": "mythic",
+        "name": "신화",
+        "color": "#f0604a",
+        "optionLines": 5,
+        "statMult": 3.0,
+        "valueMult": 5000
+      }
+    ],
+    "options": [
+      {
+        "id": "attackPct",
+        "name": "공격력",
+        "min": 0.03,
+        "max": 0.1,
+        "percent": true
+      },
+      {
+        "id": "defensePct",
+        "name": "방어력",
+        "min": 0.03,
+        "max": 0.1,
+        "percent": true
+      },
+      {
+        "id": "maxHpPct",
+        "name": "최대 HP",
+        "min": 0.03,
+        "max": 0.1,
+        "percent": true
+      },
+      {
+        "id": "maxManaPct",
+        "name": "최대 마나",
+        "min": 0.03,
+        "max": 0.1,
+        "percent": true
+      },
+      {
+        "id": "critChance",
+        "name": "치명타 확률",
+        "min": 0.01,
+        "max": 0.04,
+        "percent": true
+      },
+      {
+        "id": "critDamage",
+        "name": "치명타 피해",
+        "min": 0.05,
+        "max": 0.2,
+        "percent": true
+      },
+      {
+        "id": "attackSpeed",
+        "name": "공격 속도",
+        "min": 0.02,
+        "max": 0.08,
+        "percent": true
+      },
+      {
+        "id": "cdr",
+        "name": "쿨타임 감소",
+        "min": 0.02,
+        "max": 0.06,
+        "percent": true
+      },
+      {
+        "id": "penetration",
+        "name": "방어 관통",
+        "min": 0.02,
+        "max": 0.08,
+        "percent": true
+      },
+      {
+        "id": "ccResist",
+        "name": "CC 저항",
+        "min": 0.03,
+        "max": 0.1,
+        "percent": true
+      },
+      {
+        "id": "hpRegen",
+        "name": "HP 재생(초당)",
+        "min": 0.5,
+        "max": 2.0,
+        "percent": false
+      },
+      {
+        "id": "lifesteal",
+        "name": "흡혈",
+        "min": 0.01,
+        "max": 0.04,
+        "percent": true
+      }
+    ],
+    "bag": {
+      "step": 10,
+      "maxSlots": 120,
+      "baseCost": 1000
+    },
+    "sellRatio": 0.1
+  }
+}

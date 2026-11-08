@@ -1,0 +1,148 @@
+{
+  "_comment": "새벽 마을과 들판(5권 1.1 지역 1) 중 단계 1 범위: 마을 + 남쪽 토끼 들판 + 들판 가장자리 늑대. 배치·크기는 Claude 초기값.",
+  "id": "dawn_village",
+  "name": "새벽 마을",
+  "sizeMeters": 256,
+  "terrain": {
+    "seed": 20261107,
+    "hillHeight": 5.0,
+    "gridStep": 2.0,
+    "flats": [
+      {
+        "x": 0,
+        "z": 0,
+        "radius": 30
+      },
+      {
+        "x": 0,
+        "z": -52,
+        "radius": 25
+      },
+      {
+        "x": 42,
+        "z": -28,
+        "radius": 14
+      }
+    ]
+  },
+  "playerSpawn": {
+    "x": 0,
+    "z": 2,
+    "yaw": 0
+  },
+  "respawnPoint": {
+    "x": 3,
+    "z": 0,
+    "yaw": 0
+  },
+  "startArea": {
+    "x": 0,
+    "z": 0,
+    "radius": 90
+  },
+  "startAreaMessage": "이장: 마을 밖은 위험하다네. 내 부탁부터 들어주게나.",
+  "buildings": [
+    {
+      "name": "이장의 집",
+      "x": 0,
+      "z": 15,
+      "yaw": 0,
+      "width": 9,
+      "depth": 7,
+      "height": 4,
+      "wallColor": "#d8c7a3",
+      "roofColor": "#7d2f22"
+    },
+    {
+      "name": "민가",
+      "x": -15,
+      "z": 6,
+      "yaw": 90,
+      "width": 6,
+      "depth": 5,
+      "height": 3,
+      "wallColor": "#cbb894",
+      "roofColor": "#5a4a3a"
+    },
+    {
+      "name": "민가",
+      "x": 15,
+      "z": 8,
+      "yaw": -90,
+      "width": 6,
+      "depth": 5,
+      "height": 3,
+      "wallColor": "#cbb894",
+      "roofColor": "#4f5a3a"
+    },
+    {
+      "name": "민가",
+      "x": -13,
+      "z": -11,
+      "yaw": 60,
+      "width": 5,
+      "depth": 5,
+      "height": 3,
+      "wallColor": "#c4b08a",
+      "roofColor": "#6a3a2a"
+    },
+    {
+      "name": "창고",
+      "x": 13,
+      "z": -12,
+      "yaw": -60,
+      "width": 5,
+      "depth": 4,
+      "height": 2.6,
+      "wallColor": "#9c8466",
+      "roofColor": "#3f3a33"
+    },
+    {
+      "name": "우물",
+      "x": -4,
+      "z": -2,
+      "yaw": 0,
+      "width": 1.6,
+      "depth": 1.6,
+      "height": 0.9,
+      "wallColor": "#8d8d8d",
+      "roofColor": "#8d8d8d"
+    }
+  ],
+  "trees": {
+    "count": 320,
+    "seed": 7,
+    "avoid": [
+      {
+        "x": 0,
+        "z": 0,
+        "radius": 34
+      },
+      {
+        "x": 0,
+        "z": -52,
+        "radius": 27
+      },
+      {
+        "x": 42,
+        "z": -28,
+        "radius": 16
+      },
+      {
+        "x": 0,
+        "z": -26,
+        "radius": 8
+      },
+      {
+        "x": 24,
+        "z": 32,
+        "radius": 16
+      },
+      {
+        "x": 31,
+        "z": 36,
+        "radius": 12
+      }
+    ]
+  }
+}

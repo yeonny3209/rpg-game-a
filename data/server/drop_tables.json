@@ -1,0 +1,436 @@
+{
+  "_comment": "서버 전용(클라이언트에 보내지 않음). 토끼: 1~3골드, 토끼 간 70%, 토끼 발 10% (1권 6.1). 골드에는 4권 3.2의 레벨 보정이 곱해짐.",
+  "dropTables": [
+    {
+      "id": "rabbit",
+      "goldMin": 1,
+      "goldMax": 3,
+      "items": [
+        {
+          "item": "rabbit_liver",
+          "chance": 0.7,
+          "min": 1,
+          "max": 1
+        },
+        {
+          "item": "rabbit_foot",
+          "chance": 0.1,
+          "min": 1,
+          "max": 1
+        },
+        {
+          "item": "helmet_t1",
+          "chance": 0.015,
+          "min": 1,
+          "max": 1,
+          "grades": {
+            "common": 1
+          }
+        },
+        {
+          "item": "armor_t1",
+          "chance": 0.015,
+          "min": 1,
+          "max": 1,
+          "grades": {
+            "common": 1
+          }
+        },
+        {
+          "item": "gloves_t1",
+          "chance": 0.015,
+          "min": 1,
+          "max": 1,
+          "grades": {
+            "common": 1
+          }
+        },
+        {
+          "item": "boots_t1",
+          "chance": 0.015,
+          "min": 1,
+          "max": 1,
+          "grades": {
+            "common": 1
+          }
+        },
+        {
+          "item": "necklace_t1",
+          "chance": 0.015,
+          "min": 1,
+          "max": 1,
+          "grades": {
+            "common": 1
+          }
+        },
+        {
+          "item": "ring_t1",
+          "chance": 0.015,
+          "min": 1,
+          "max": 1,
+          "grades": {
+            "common": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "wolf",
+      "goldMin": 1,
+      "goldMax": 3,
+      "items": [
+        {
+          "item": "helmet_t1",
+          "chance": 0.025,
+          "min": 1,
+          "max": 1,
+          "grades": {
+            "common": 80,
+            "rare": 20
+          }
+        },
+        {
+          "item": "armor_t1",
+          "chance": 0.025,
+          "min": 1,
+          "max": 1,
+          "grades": {
+            "common": 80,
+            "rare": 20
+          }
+        },
+        {
+          "item": "gloves_t1",
+          "chance": 0.025,
+          "min": 1,
+          "max": 1,
+          "grades": {
+            "common": 80,
+            "rare": 20
+          }
+        },
+        {
+          "item": "boots_t1",
+          "chance": 0.025,
+          "min": 1,
+          "max": 1,
+          "grades": {
+            "common": 80,
+            "rare": 20
+          }
+        },
+        {
+          "item": "necklace_t1",
+          "chance": 0.025,
+          "min": 1,
+          "max": 1,
+          "grades": {
+            "common": 80,
+            "rare": 20
+          }
+        },
+        {
+          "item": "ring_t1",
+          "chance": 0.025,
+          "min": 1,
+          "max": 1,
+          "grades": {
+            "common": 80,
+            "rare": 20
+          }
+        }
+      ]
+    },
+    {
+      "id": "boar",
+      "goldMin": 2,
+      "goldMax": 5,
+      "items": [
+        {
+          "item": "boar_hide",
+          "chance": 0.5,
+          "min": 1,
+          "max": 1
+        },
+        {
+          "item": "helmet_t1",
+          "chance": 0.025,
+          "min": 1,
+          "max": 1,
+          "grades": {
+            "common": 80,
+            "rare": 20
+          }
+        },
+        {
+          "item": "armor_t1",
+          "chance": 0.025,
+          "min": 1,
+          "max": 1,
+          "grades": {
+            "common": 80,
+            "rare": 20
+          }
+        },
+        {
+          "item": "gloves_t1",
+          "chance": 0.025,
+          "min": 1,
+          "max": 1,
+          "grades": {
+            "common": 80,
+            "rare": 20
+          }
+        },
+        {
+          "item": "boots_t1",
+          "chance": 0.025,
+          "min": 1,
+          "max": 1,
+          "grades": {
+            "common": 80,
+            "rare": 20
+          }
+        },
+        {
+          "item": "necklace_t1",
+          "chance": 0.025,
+          "min": 1,
+          "max": 1,
+          "grades": {
+            "common": 80,
+            "rare": 20
+          }
+        },
+        {
+          "item": "ring_t1",
+          "chance": 0.025,
+          "min": 1,
+          "max": 1,
+          "grades": {
+            "common": 80,
+            "rare": 20
+          }
+        }
+      ]
+    },
+    {
+      "id": "spider",
+      "goldMin": 4,
+      "goldMax": 9,
+      "items": [
+        {
+          "item": "spider_silk",
+          "chance": 0.5,
+          "min": 1,
+          "max": 2
+        },
+        {
+          "item": "helmet_t1",
+          "chance": 0.035,
+          "min": 1,
+          "max": 1,
+          "grades": {
+            "common": 60,
+            "rare": 35,
+            "epic": 5
+          }
+        },
+        {
+          "item": "armor_t1",
+          "chance": 0.035,
+          "min": 1,
+          "max": 1,
+          "grades": {
+            "common": 60,
+            "rare": 35,
+            "epic": 5
+          }
+        },
+        {
+          "item": "gloves_t1",
+          "chance": 0.035,
+          "min": 1,
+          "max": 1,
+          "grades": {
+            "common": 60,
+            "rare": 35,
+            "epic": 5
+          }
+        },
+        {
+          "item": "boots_t1",
+          "chance": 0.035,
+          "min": 1,
+          "max": 1,
+          "grades": {
+            "common": 60,
+            "rare": 35,
+            "epic": 5
+          }
+        },
+        {
+          "item": "necklace_t1",
+          "chance": 0.035,
+          "min": 1,
+          "max": 1,
+          "grades": {
+            "common": 60,
+            "rare": 35,
+            "epic": 5
+          }
+        },
+        {
+          "item": "ring_t1",
+          "chance": 0.035,
+          "min": 1,
+          "max": 1,
+          "grades": {
+            "common": 60,
+            "rare": 35,
+            "epic": 5
+          }
+        }
+      ]
+    },
+    {
+      "id": "bear",
+      "goldMin": 10,
+      "goldMax": 20,
+      "items": [
+        {
+          "item": "bear_claw",
+          "chance": 0.3,
+          "min": 1,
+          "max": 1
+        },
+        {
+          "item": "helmet_t1",
+          "chance": 0.05,
+          "min": 1,
+          "max": 1,
+          "grades": {
+            "common": 50,
+            "rare": 40,
+            "epic": 10
+          }
+        },
+        {
+          "item": "armor_t1",
+          "chance": 0.05,
+          "min": 1,
+          "max": 1,
+          "grades": {
+            "common": 50,
+            "rare": 40,
+            "epic": 10
+          }
+        },
+        {
+          "item": "gloves_t1",
+          "chance": 0.05,
+          "min": 1,
+          "max": 1,
+          "grades": {
+            "common": 50,
+            "rare": 40,
+            "epic": 10
+          }
+        },
+        {
+          "item": "boots_t1",
+          "chance": 0.05,
+          "min": 1,
+          "max": 1,
+          "grades": {
+            "common": 50,
+            "rare": 40,
+            "epic": 10
+          }
+        },
+        {
+          "item": "necklace_t1",
+          "chance": 0.05,
+          "min": 1,
+          "max": 1,
+          "grades": {
+            "common": 50,
+            "rare": 40,
+            "epic": 10
+          }
+        },
+        {
+          "item": "ring_t1",
+          "chance": 0.05,
+          "min": 1,
+          "max": 1,
+          "grades": {
+            "common": 50,
+            "rare": 40,
+            "epic": 10
+          }
+        },
+        {
+          "item": "helmet_t2",
+          "chance": 0.01,
+          "min": 1,
+          "max": 1,
+          "grades": {
+            "common": 70,
+            "rare": 30
+          }
+        },
+        {
+          "item": "armor_t2",
+          "chance": 0.01,
+          "min": 1,
+          "max": 1,
+          "grades": {
+            "common": 70,
+            "rare": 30
+          }
+        },
+        {
+          "item": "gloves_t2",
+          "chance": 0.01,
+          "min": 1,
+          "max": 1,
+          "grades": {
+            "common": 70,
+            "rare": 30
+          }
+        },
+        {
+          "item": "boots_t2",
+          "chance": 0.01,
+          "min": 1,
+          "max": 1,
+          "grades": {
+            "common": 70,
+            "rare": 30
+          }
+        },
+        {
+          "item": "necklace_t2",
+          "chance": 0.01,
+          "min": 1,
+          "max": 1,
+          "grades": {
+            "common": 70,
+            "rare": 30
+          }
+        },
+        {
+          "item": "ring_t2",
+          "chance": 0.01,
+          "min": 1,
+          "max": 1,
+          "grades": {
+            "common": 70,
+            "rare": 30
+          }
+        }
+      ]
+    }
+  ]
+}

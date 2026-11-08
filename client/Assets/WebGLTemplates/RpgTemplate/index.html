@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{{ PRODUCT_NAME }}}</title>
+  <style>
+    html, body { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; background: #111; font-family: 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif; color: #eee; }
+    #unity-canvas { width: 100%; height: 100%; display: block; background: #222; outline: none; }
+    #overlay { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.55); }
+    #overlay.hidden { display: none; }
+    .panel { background: #1d1f24; padding: 28px 32px; border-radius: 10px; width: 320px; box-shadow: 0 10px 40px rgba(0,0,0,0.5); }
+    .panel h1 { font-size: 20px; margin: 0 0 6px; }
+    .panel p { font-size: 13px; color: #aab; margin: 0 0 16px; line-height: 1.5; }
+    .panel input { width: 100%; box-sizing: border-box; padding: 10px; font-size: 16px; border-radius: 6px; border: 1px solid #444; background: #111; color: #fff; }
+    .panel input + input { margin-top: 8px; }
+    .panel .link { margin-top: 10px; background: transparent; color: #8bb4f0; font-size: 13px; padding: 4px; text-decoration: underline; }
+    .panel .hint { font-size: 12px; color: #889; margin: 8px 0 0; line-height: 1.5; }
+    .panel button { margin-top: 12px; width: 100%; padding: 10px; font-size: 16px; border: 0; border-radius: 6px; background: #3b7ddd; color: #fff; cursor: pointer; }
+    .panel button:disabled { background: #555; cursor: default; }
+    #progress { height: 6px; background: #333; border-radius: 3px; margin-top: 14px; overflow: hidden; }
+    #progress > div { height: 100%; width: 0; background: #3b7ddd; transition: width 0.2s; }
+    #status { font-size: 12px; color: #889; margin-top: 8px; min-height: 16px; }
+    #message { position: fixed; top: 12px; left: 50%; transform: translateX(-50%); padding: 8px 16px; border-radius: 6px; background: rgba(0,0,0,0.75); font-size: 14px; display: none; z-index: 10; }
+    #message.error { background: rgba(160,30,30,0.9); }
+    #chatbox { position: fixed; left: 16px; bottom: 150px; width: 440px; display: none; align-items: center; gap: 8px; padding: 6px 8px; border-radius: 6px; background: rgba(8,10,14,0.88); border: 1px solid #556; z-index: 20; }
+    #chatch { flex: 0 0 auto; font-size: 13px; padding: 3px 8px; border-radius: 4px; background: #3b7ddd; color: #fff; }
+    #chatch.world { background: #c4932a; }
+    #chatinput { flex: 1 1 auto; min-width: 0; box-sizing: border-box; padding: 6px 8px; font-size: 15px; border: 0; outline: 0; background: transparent; color: #fff; }
+  </style>
+</head>
+<body>
+  <canvas id="unity-canvas" tabindex="-1"></canvas>
+
+  <div id="overlay">
+    <div class="panel">
+      <h1>{{{ PRODUCT_NAME }}}</h1>
+      <p>단계 2a · 새벽 마을<br>닉네임(2~12자)과 비밀번호로 접속해.</p>
+      <input id="nick" maxlength="12" placeholder="닉네임" autocomplete="username">
+      <input id="pw" type="password" maxlength="32" placeholder="비밀번호" autocomplete="current-password">
+      <input id="pw2" type="password" maxlength="32" placeholder="비밀번호 한 번 더" autocomplete="new-password" style="display:none">
+      <p class="hint" id="pwhint" style="display:none">비밀번호는 4~32자야. 잊어버리면 찾을 수 없으니 기억해 둬.</p>
+      <button id="enter" disabled>불러오는 중…</button>
+      <button id="mode" class="link" type="button">처음이야? 계정 만들기</button>
+      <div id="progress"><div></div></div>
+      <div id="status"></div>
+    </div>
+  </div>
+  <div id="message"></div>
+  <div id="chatbox"><span id="chatch">일반</span><input id="chatinput" maxlength="100" autocomplete="off" placeholder="Enter 보내기 · Tab 일반/월드 · Esc 취소"></div>
+
+  <script>
+    var params = new URLSearchParams(location.search);
+    // Unity must get the real devicePixelRatio: a smaller value makes uGUI and the 3D view crop on high-DPI screens
+    // (found in stage 1). The 3D cost is kept down in GraphicsQuality instead (render scale divided by DPR).
+    var dpr = window.devicePixelRatio || 1;
+
+    var canvas = document.getElementById('unity-canvas');
+    var overlay = document.getElementById('overlay');
+    var nick = document.getElementById('nick');
+    var pw = document.getElementById('pw');
+    var pw2 = document.getElementById('pw2');
+    var pwhint = document.getElementById('pwhint');
+    var modeBtn = document.getElementById('mode');
+    var createMode = false;
+    var enter = document.getElementById('enter');
+    var bar = document.querySelector('#progress > div');
+    var status = document.getElementById('status');
+    var msg = document.getElementById('message');
+    var unityInstance = null;
+    var msgTimer = null;
+
+    nick.value = params.get('name') || localStorage.getItem('rpg_nick') || '';
+
+    window.rpgShowMessage = function (text, kind) {
+      msg.textContent = text;
+      msg.className = kind >= 1 ? 'error' : '';
+      msg.style.display = 'block';
+      clearTimeout(msgTimer);
+      msgTimer = setTimeout(function () { msg.style.display = 'none'; }, kind >= 1 ? 8000 : 4000);
+    };
+
+    function updateMode() {
+      pw2.style.display = createMode ? 'block' : 'none';
+      pwhint.style.display = createMode ? 'block' : 'none';
+      pw.autocomplete = createMode ? 'new-password' : 'current-password';
+      enter.textContent = unityInstance ? (createMode ? '계정 만들고 접속' : '접속') : '불러오는 중…';
+      modeBtn.textContent = createMode ? '이미 계정이 있어? 접속하기' : '처음이야? 계정 만들기';
+    }
+    modeBtn.addEventListener('click', function () { createMode = !createMode; pw2.value = ''; updateMode(); });
+
+    window.rpgShowLogin = function (show) {
+      overlay.className = show ? '' : 'hidden';
+      if (show) { enter.disabled = !unityInstance; updateMode(); pw.value = ''; pw2.value = ''; (nick.value ? pw : nick).focus(); }
+      else canvas.focus();
+    };
+
+    // ── chat input (typing goes here because Unity WebGL cannot take Korean IME text) ──
+    var chatbox = document.getElementById('chatbox');
+    var chatinput = document.getElementById('chatinput');
+    var chatch = document.getElementById('chatch');
+    var chatChannel = 0, chatOpen = false;
+
+    function showChannel() {
+      chatch.textContent = chatChannel === 1 ? '월드 외치기' : '일반';
+      chatch.className = chatChannel === 1 ? 'world' : '';
+    }
+
+    window.rpgChatOpen = function (channel, prefill) {
+      chatChannel = channel === 1 ? 1 : 0;
+      showChannel();
+      chatbox.style.display = 'flex';
+      chatinput.value = prefill || '';
+      chatOpen = true;
+      if (document.pointerLockElement) document.exitPointerLock();
+      setTimeout(function () { chatinput.focus(); }, 0);
+    };
+
+    function closeChat() {
+      chatOpen = false;
+      chatbox.style.display = 'none';
+      chatinput.value = '';
+      canvas.focus();
+    }
+    window.rpgChatClose = closeChat;
+
+    chatinput.addEventListener('keydown', function (e) {
+      e.stopPropagation();
+      if (e.isComposing || e.keyCode === 229) return;          // Korean syllable still being composed
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        var text = chatinput.value;
+        var ch = chatChannel;
+        closeChat();
+        if (unityInstance) unityInstance.SendMessage('Bootstrap', 'OnHtmlChat', ch + '|' + text);
+      } else if (e.key === 'Escape') {
+        e.preventDefault();
+        closeChat();
+        if (unityInstance) unityInstance.SendMessage('Bootstrap', 'OnHtmlChatClosed', '');
+      } else if (e.key === 'Tab') {
+        e.preventDefault();
+        chatChannel = 1 - chatChannel;
+        showChannel();
+      }
+    });
+    chatinput.addEventListener('keyup', function (e) { e.stopPropagation(); });
+    chatinput.addEventListener('blur', function () {
+      if (!chatOpen) return;
+      closeChat();
+      if (unityInstance) unityInstance.SendMessage('Bootstrap', 'OnHtmlChatClosed', '');
+    });
+
+    function submit() {
+      var name = nick.value.trim();
+      var pass = pw.value;
+      if (name.length < 2) { window.rpgShowMessage('닉네임은 2자 이상', 1); return; }
+      if (pass.length < 4) { window.rpgShowMessage('비밀번호를 입력해 줘 (4자 이상)', 1); return; }
+      if (createMode && pass !== pw2.value) { window.rpgShowMessage('비밀번호 두 번이 서로 달라', 1); return; }
+      // 닉네임비밀번호만들기(0/1). The password goes straight to the game server and is never stored in the browser.
+      var payload = name + '' + pass + '' + (createMode ? '1' : '0');
+      window.rpgNickname = unityInstance ? '' : payload;   // kept only if the game is not loaded yet
+      localStorage.setItem('rpg_nick', name);
+      enter.disabled = true;
+      enter.textContent = '접속 중…';
+      pw.value = ''; pw2.value = '';
+      if (unityInstance) unityInstance.SendMessage('Bootstrap', 'OnHtmlLogin', payload);
+    }
+    enter.addEventListener('click', submit);
+    [nick, pw, pw2].forEach(function (el) { el.addEventListener('keydown', function (e) { if (e.key === 'Enter') submit(); }); });
+
+    var config = {
+      dataUrl: "Build/{{{ DATA_FILENAME }}}",
+      frameworkUrl: "Build/{{{ FRAMEWORK_FILENAME }}}",
+#if USE_WASM
+      codeUrl: "Build/{{{ CODE_FILENAME }}}",
+#endif
+#if MEMORY_FILENAME
+      memoryUrl: "Build/{{{ MEMORY_FILENAME }}}",
+#endif
+#if SYMBOLS_FILENAME
+      symbolsUrl: "Build/{{{ SYMBOLS_FILENAME }}}",
+#endif
+      streamingAssetsUrl: "StreamingAssets",
+      companyName: {{{ JSON.stringify(COMPANY_NAME) }}},
+      productName: {{{ JSON.stringify(PRODUCT_NAME) }}},
+      productVersion: {{{ JSON.stringify(PRODUCT_VERSION) }}},
+      devicePixelRatio: dpr,
+    };
+
+    var script = document.createElement('script');
+    script.src = "Build/{{{ LOADER_FILENAME }}}";
+    script.onload = function () {
+      createUnityInstance(canvas, config, function (p) {
+        bar.style.width = Math.round(p * 100) + '%';
+        status.textContent = '불러오는 중 ' + Math.round(p * 100) + '%';
+      }).then(function (inst) {
+        unityInstance = inst;
+        status.textContent = '준비 완료';
+        enter.disabled = false;
+        updateMode();
+        (nick.value ? pw : nick).focus();
+      }).catch(function (err) {
+        status.textContent = '로드 실패: ' + err;
+      });
+    };
+    document.body.appendChild(script);
+  </script>
+</body>
+</html>

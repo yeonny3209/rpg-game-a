@@ -1,0 +1,57 @@
+{
+  "movement": {
+    "baseMoveSpeedStat": 100,
+    "runSpeedMps": 6.0,
+    "gravity": 22.0,
+    "jumpHeight": 1.5,
+    "doubleJumpHeight": 1.3,
+    "maxJumps": 2,
+    "airControl": 0.6,
+    "glideHoldDelay": 0.25,
+    "glideFallSpeed": 2.5,
+    "glideSpeedMps": 7.0,
+    "dashDistance": 5.0,
+    "dashDuration": 0.15,
+    "dashCooldown": 2.0,
+    "dodgeDistance": 4.0,
+    "dodgeDuration": 0.3,
+    "dodgeCooldown": 3.0,
+    "dodgeInvulnSec": 0.4
+  },
+  "validation": {
+    "speedTolerance": 1.3,
+    "budgetWindowSec": 0.5,
+    "heightTolerance": 0.6,
+    "underGroundTolerance": 1.0,
+    "attackIntervalTolerance": 0.8,
+    "hitArcToleranceDeg": 20,
+    "hitRangeTolerance": 0.6,
+    "maxMessagesPerSecond": 120
+  },
+  "net": {
+    "serverTickRate": 20,
+    "clientSendRate": 20,
+    "interpolationDelaySec": 0.1,
+    "pingIntervalSec": 2.0,
+    "idleTimeoutSec": 30.0,
+    "maxPlayersPerZone": 100,
+    "saveDebounceSec": 5.0
+  },
+  "combat": {
+    "defenseBase": 400,
+    "defensePerAttackerLevel": 40,
+    "randomMin": 0.95,
+    "randomMax": 1.05,
+    "defaultTargetRadius": 0.4,
+    "damageNumberSec": 0.9,
+    "backArcDeg": 120,
+    "backMultiplier": 2.0,
+    "ccImmunitySec": 3.0,
+    "slowMultiplier": 0.5,
+    "knockbackStunSec": 0.3,
+    "projectileHeightTolerance": 3.0
+  },
+  "economy": {
+    "goldPerMonsterLevel": 0.1
+  }
+}

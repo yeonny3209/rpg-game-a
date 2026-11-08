@@ -1,0 +1,29 @@
+# Unity
+client/[Ll]ibrary/
+client/[Tt]emp/
+client/[Oo]bj/
+client/[Bb]uild/
+client/[Bb]uilds/
+client/[Ll]ogs/
+client/[Uu]ser[Ss]ettings/
+client/MemoryCaptures/
+client/*.csproj
+client/*.sln
+client/*.user
+client/.vs/
+client/.vsconfig
+
+# .NET
+**/bin/
+**/obj/
+*.user
+.vs/
+.idea/
+
+# Local
+*.log
+.env
+builds/
+tools/cloudflared/cloudflared.exe
+
+tools/logs/

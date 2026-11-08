@@ -1,0 +1,363 @@
+{
+  "_comment": "2권 4~5장. 단계 2a: 동양 검사·궁수, 단계 2b 1차: 마법사·암살자. 서양 검사·전사·버퍼는 2b 나머지. 시험 형태는 결정 기록(2026-11-07 Q1). 서클 승급표는 2권 5.2, 비행 수치는 4권 1.5.",
+  "jobs": [
+    {
+      "id": "eastern_swordsman",
+      "name": "동양 검사",
+      "tierNames": [
+        "검사",
+        "검호",
+        "검성"
+      ],
+      "primaryStat": "str",
+      "weaponType": "sword",
+      "available": true,
+      "role": "근접 딜러",
+      "description": "검을 직접 휘둘러 싸운다. 적을 벨 때마다 쌓이는 훈련량이 클수록 데미지가 강해진다.",
+      "masterNpc": "sword_master",
+      "starterWeapon": "apprentice_sword",
+      "skills": [
+        "sw_flurry",
+        "sw_iai",
+        "sw_counter",
+        "sw_whirl",
+        "sw_wave",
+        "sw_cleave"
+      ],
+      "trial": {
+        "monster": "trial_swordsman",
+        "spawnDistance": 6,
+        "timeLimitSec": 120,
+        "maxDistance": 35
+      },
+      "training": {
+        "enabled": true,
+        "perLevel": 1000,
+        "growthPerLevel": 0.2,
+        "attackPerLevel": 0.015,
+        "dailyCap": 1000,
+        "perHit": 1,
+        "perSkillHit": 3
+      }
+    },
+    {
+      "id": "archer",
+      "name": "궁수",
+      "tierNames": [
+        "궁수",
+        "명사수",
+        "신궁"
+      ],
+      "primaryStat": "dex",
+      "weaponType": "bow",
+      "available": true,
+      "role": "원거리 딜러",
+      "description": "활시위를 오래 당길수록 강한 화살을 쏜다. 직접 조준하고, 거리를 벌리며 싸운다.",
+      "masterNpc": "bow_master",
+      "starterWeapon": "apprentice_bow",
+      "skills": [
+        "ar_rapid",
+        "ar_focus",
+        "ar_backstep",
+        "ar_bind",
+        "ar_volley",
+        "ar_pierce"
+      ],
+      "trial": {
+        "monster": "trial_archer",
+        "spawnDistance": 7,
+        "timeLimitSec": 120,
+        "maxDistance": 40
+      },
+      "bow": {
+        "enabled": true,
+        "tiers": [
+          {
+            "minHold": 0.0,
+            "coefficient": 1.0,
+            "penetration": 0.0,
+            "label": "즉발"
+          },
+          {
+            "minHold": 1.0,
+            "coefficient": 2.0,
+            "penetration": 0.0,
+            "label": "반차징"
+          },
+          {
+            "minHold": 2.0,
+            "coefficient": 3.0,
+            "penetration": 0.2,
+            "label": "풀차징"
+          }
+        ],
+        "shotInterval": 1.0,
+        "magazine": 5,
+        "reloadSec": 2.5,
+        "chargeMoveSpeed": 0.8,
+        "projectileSpeed": 45,
+        "range": 40,
+        "radius": 0.4
+      },
+      "flight": {
+        "enabled": true,
+        "duration": 10,
+        "cooldown": 30,
+        "speedMultiplier": 1.4,
+        "maxHeight": 25,
+        "climbSpeed": 6,
+        "fallDamagePerTenMeters": 0.08,
+        "graceSec": 12
+      }
+    },
+    {
+      "id": "western_swordsman",
+      "name": "서양 검사",
+      "tierNames": [
+        "검사",
+        "마력 기사",
+        "성검 기사"
+      ],
+      "primaryStat": "str",
+      "weaponType": "longsword",
+      "available": true,
+      "role": "근접 딜러",
+      "description": "자신의 마나를 검에 담아 싸운다. 마나가 많을수록 한 방이 강해진다. 마나 주입을 켜면 평타에도 마나가 실린다.",
+      "masterNpc": "western_master",
+      "starterWeapon": "apprentice_blade",
+      "skills": [
+        "ws_wave",
+        "ws_infuse",
+        "ws_burst",
+        "ws_barrier",
+        "ws_dash",
+        "ws_rend"
+      ],
+      "trial": {
+        "monster": "trial_western",
+        "spawnDistance": 6,
+        "timeLimitSec": 120,
+        "maxDistance": 35
+      },
+      "infuse": {
+        "enabled": true,
+        "costRatio": 0.01,
+        "divisor": 2000
+      }
+    },
+    {
+      "id": "mage",
+      "name": "마법사",
+      "tierNames": [
+        "마법사",
+        "대마법사",
+        "현자"
+      ],
+      "primaryStat": "int",
+      "weaponType": "staff",
+      "available": true,
+      "role": "원거리 딜러",
+      "description": "속성 하나를 골라 서클 마법을 쓴다. 마나를 쓰고 비행할 수 있다. 서클이 오를수록 강한 마법을 배운다.",
+      "masterNpc": "mage_master",
+      "starterWeapon": "apprentice_staff",
+      "skills": [
+        "mg_bolt",
+        "mg_shield",
+        "mg_blast",
+        "mg_pillar",
+        "mg_chain",
+        "mg_field"
+      ],
+      "trial": {
+        "monster": "trial_mage",
+        "spawnDistance": 7,
+        "timeLimitSec": 120,
+        "maxDistance": 40
+      },
+      "mage": {
+        "enabled": true,
+        "elements": [
+          "fire",
+          "ice",
+          "water",
+          "lightning",
+          "plant",
+          "metal"
+        ],
+        "circles": [
+          {
+            "circle": 1,
+            "level": 5,
+            "maxMana": 0,
+            "trial": "auto",
+            "available": true
+          },
+          {
+            "circle": 2,
+            "level": 12,
+            "maxMana": 400,
+            "trial": "auto",
+            "available": true
+          },
+          {
+            "circle": 3,
+            "level": 20,
+            "maxMana": 700,
+            "trial": "auto",
+            "available": true
+          },
+          {
+            "circle": 4,
+            "level": 28,
+            "maxMana": 1100,
+            "trial": "auto",
+            "available": true
+          },
+          {
+            "circle": 5,
+            "level": 35,
+            "maxMana": 1600,
+            "trial": "battle",
+            "available": false
+          },
+          {
+            "circle": 6,
+            "level": 45,
+            "maxMana": 2300,
+            "trial": "battle",
+            "available": false
+          },
+          {
+            "circle": 7,
+            "level": 50,
+            "maxMana": 3200,
+            "trial": "battle",
+            "available": false
+          }
+        ]
+      },
+      "flight": {
+        "enabled": true,
+        "duration": 10,
+        "cooldown": 30,
+        "speedMultiplier": 1.4,
+        "maxHeight": 25,
+        "climbSpeed": 6,
+        "fallDamagePerTenMeters": 0.08,
+        "graceSec": 12
+      },
+      "basic": {
+        "kind": "projectile",
+        "coefficient": 0.7,
+        "speed": 26,
+        "range": 16,
+        "radius": 0.4
+      }
+    },
+    {
+      "id": "assassin",
+      "name": "암살자",
+      "tierNames": [
+        "암살자",
+        "그림자",
+        "사신"
+      ],
+      "primaryStat": "dex",
+      "weaponType": "dagger",
+      "available": true,
+      "role": "근접 버스트",
+      "description": "대상의 등 뒤를 때리면 피해가 2배. 그림자 걸음으로 순식간에 뒤를 잡고 한 콤보에 끝낸다. 마나 없이 쿨타임만 쓴다.",
+      "masterNpc": "assassin_master",
+      "starterWeapon": "apprentice_dagger",
+      "skills": [
+        "as_step",
+        "as_flurry",
+        "as_smoke",
+        "as_vital",
+        "as_throw",
+        "as_execute"
+      ],
+      "trial": {
+        "monster": "trial_assassin",
+        "spawnDistance": 6,
+        "timeLimitSec": 120,
+        "maxDistance": 35
+      },
+      "backstab": true
+    },
+    {
+      "id": "warrior",
+      "name": "전사",
+      "tierNames": [
+        "전사",
+        "투사",
+        "수호자"
+      ],
+      "primaryStat": "con",
+      "weaponType": "mace",
+      "available": true,
+      "role": "방어·CC",
+      "description": "도발로 적의 눈을 끌어 동료를 지키고, 여러 가지 CC로 전선을 잡는다. 방어력으로 버틴다. 한손 무기에 방패.",
+      "masterNpc": "warrior_master",
+      "starterWeapon": "apprentice_mace",
+      "skills": [
+        "wr_bash",
+        "wr_taunt",
+        "wr_guard",
+        "wr_quake",
+        "wr_charge",
+        "wr_roar"
+      ],
+      "trial": {
+        "monster": "trial_warrior",
+        "spawnDistance": 6,
+        "timeLimitSec": 120,
+        "maxDistance": 35
+      }
+    },
+    {
+      "id": "buffer",
+      "name": "버퍼",
+      "tierNames": [
+        "버퍼",
+        "축복술사",
+        "태양의 대리인"
+      ],
+      "primaryStat": "spi",
+      "weaponType": "holy",
+      "available": true,
+      "role": "지원",
+      "description": "신성력으로 동료 모두를 강화하고 대상을 치유하며, 쓰러진 동료를 일으킨다. 마나 없이 쿨타임만 쓴다.",
+      "masterNpc": "buffer_master",
+      "starterWeapon": "apprentice_relic",
+      "skills": [
+        "bf_smite",
+        "bf_heal",
+        "bf_bless",
+        "bf_ward",
+        "bf_rain",
+        "bf_revive"
+      ],
+      "trial": {
+        "monster": "trial_buffer",
+        "spawnDistance": 7,
+        "timeLimitSec": 120,
+        "maxDistance": 35
+      },
+      "buffer": {
+        "enabled": true,
+        "allyRange": 40,
+        "holyBase": 100,
+        "holyCoef": 0.25,
+        "stackCap": 2
+      },
+      "basic": {
+        "kind": "projectile",
+        "coefficient": 0.6,
+        "speed": 26,
+        "range": 14,
+        "radius": 0.4
+      }
+    }
+  ]
+}

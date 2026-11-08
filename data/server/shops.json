@@ -1,0 +1,350 @@
+{
+  "_comment": "상점 목록(서버 전용). 장비는 에픽까지 판다(4권 3.5). 가격 = 아이템 기본값 × 등급 배율(item_rules.json). 무기는 직업에 맞는 것만 보인다.",
+  "shops": [
+    {
+      "id": "general",
+      "name": "잡화점",
+      "npc": "general_store",
+      "entries": [
+        {
+          "item": "hp_potion_low",
+          "grade": "common"
+        },
+        {
+          "item": "hp_potion_high",
+          "grade": "common"
+        },
+        {
+          "item": "mp_potion_low",
+          "grade": "common"
+        },
+        {
+          "item": "mp_potion_high",
+          "grade": "common"
+        }
+      ]
+    },
+    {
+      "id": "weapons",
+      "name": "무기점",
+      "npc": "weapon_store",
+      "entries": [
+        {
+          "item": "sword_t2",
+          "grade": "common"
+        },
+        {
+          "item": "sword_t2",
+          "grade": "rare"
+        },
+        {
+          "item": "sword_t3",
+          "grade": "common"
+        },
+        {
+          "item": "sword_t3",
+          "grade": "rare"
+        },
+        {
+          "item": "sword_t3",
+          "grade": "epic"
+        },
+        {
+          "item": "bow_t2",
+          "grade": "common"
+        },
+        {
+          "item": "bow_t2",
+          "grade": "rare"
+        },
+        {
+          "item": "bow_t3",
+          "grade": "common"
+        },
+        {
+          "item": "bow_t3",
+          "grade": "rare"
+        },
+        {
+          "item": "bow_t3",
+          "grade": "epic"
+        },
+        {
+          "item": "staff_t2",
+          "grade": "common"
+        },
+        {
+          "item": "staff_t2",
+          "grade": "rare"
+        },
+        {
+          "item": "staff_t3",
+          "grade": "common"
+        },
+        {
+          "item": "staff_t3",
+          "grade": "rare"
+        },
+        {
+          "item": "staff_t3",
+          "grade": "epic"
+        },
+        {
+          "item": "dagger_t2",
+          "grade": "common"
+        },
+        {
+          "item": "dagger_t2",
+          "grade": "rare"
+        },
+        {
+          "item": "dagger_t3",
+          "grade": "common"
+        },
+        {
+          "item": "dagger_t3",
+          "grade": "rare"
+        },
+        {
+          "item": "dagger_t3",
+          "grade": "epic"
+        },
+        {
+          "item": "mace_t2",
+          "grade": "common"
+        },
+        {
+          "item": "mace_t2",
+          "grade": "rare"
+        },
+        {
+          "item": "mace_t3",
+          "grade": "common"
+        },
+        {
+          "item": "mace_t3",
+          "grade": "rare"
+        },
+        {
+          "item": "mace_t3",
+          "grade": "epic"
+        },
+        {
+          "item": "holy_t2",
+          "grade": "common"
+        },
+        {
+          "item": "holy_t2",
+          "grade": "rare"
+        },
+        {
+          "item": "holy_t3",
+          "grade": "common"
+        },
+        {
+          "item": "holy_t3",
+          "grade": "rare"
+        },
+        {
+          "item": "holy_t3",
+          "grade": "epic"
+        },
+        {
+          "item": "longsword_t2",
+          "grade": "common"
+        },
+        {
+          "item": "longsword_t2",
+          "grade": "rare"
+        },
+        {
+          "item": "longsword_t3",
+          "grade": "common"
+        },
+        {
+          "item": "longsword_t3",
+          "grade": "rare"
+        },
+        {
+          "item": "longsword_t3",
+          "grade": "epic"
+        }
+      ]
+    },
+    {
+      "id": "armor",
+      "name": "방어구점",
+      "npc": "armor_store",
+      "entries": [
+        {
+          "item": "helmet_t1",
+          "grade": "common"
+        },
+        {
+          "item": "helmet_t1",
+          "grade": "rare"
+        },
+        {
+          "item": "armor_t1",
+          "grade": "common"
+        },
+        {
+          "item": "armor_t1",
+          "grade": "rare"
+        },
+        {
+          "item": "gloves_t1",
+          "grade": "common"
+        },
+        {
+          "item": "gloves_t1",
+          "grade": "rare"
+        },
+        {
+          "item": "boots_t1",
+          "grade": "common"
+        },
+        {
+          "item": "boots_t1",
+          "grade": "rare"
+        },
+        {
+          "item": "necklace_t1",
+          "grade": "common"
+        },
+        {
+          "item": "necklace_t1",
+          "grade": "rare"
+        },
+        {
+          "item": "ring_t1",
+          "grade": "common"
+        },
+        {
+          "item": "ring_t1",
+          "grade": "rare"
+        },
+        {
+          "item": "helmet_t2",
+          "grade": "common"
+        },
+        {
+          "item": "helmet_t2",
+          "grade": "rare"
+        },
+        {
+          "item": "armor_t2",
+          "grade": "common"
+        },
+        {
+          "item": "armor_t2",
+          "grade": "rare"
+        },
+        {
+          "item": "gloves_t2",
+          "grade": "common"
+        },
+        {
+          "item": "gloves_t2",
+          "grade": "rare"
+        },
+        {
+          "item": "boots_t2",
+          "grade": "common"
+        },
+        {
+          "item": "boots_t2",
+          "grade": "rare"
+        },
+        {
+          "item": "necklace_t2",
+          "grade": "common"
+        },
+        {
+          "item": "necklace_t2",
+          "grade": "rare"
+        },
+        {
+          "item": "ring_t2",
+          "grade": "common"
+        },
+        {
+          "item": "ring_t2",
+          "grade": "rare"
+        },
+        {
+          "item": "helmet_t3",
+          "grade": "common"
+        },
+        {
+          "item": "helmet_t3",
+          "grade": "rare"
+        },
+        {
+          "item": "helmet_t3",
+          "grade": "epic"
+        },
+        {
+          "item": "armor_t3",
+          "grade": "common"
+        },
+        {
+          "item": "armor_t3",
+          "grade": "rare"
+        },
+        {
+          "item": "armor_t3",
+          "grade": "epic"
+        },
+        {
+          "item": "gloves_t3",
+          "grade": "common"
+        },
+        {
+          "item": "gloves_t3",
+          "grade": "rare"
+        },
+        {
+          "item": "gloves_t3",
+          "grade": "epic"
+        },
+        {
+          "item": "boots_t3",
+          "grade": "common"
+        },
+        {
+          "item": "boots_t3",
+          "grade": "rare"
+        },
+        {
+          "item": "boots_t3",
+          "grade": "epic"
+        },
+        {
+          "item": "necklace_t3",
+          "grade": "common"
+        },
+        {
+          "item": "necklace_t3",
+          "grade": "rare"
+        },
+        {
+          "item": "necklace_t3",
+          "grade": "epic"
+        },
+        {
+          "item": "ring_t3",
+          "grade": "common"
+        },
+        {
+          "item": "ring_t3",
+          "grade": "rare"
+        },
+        {
+          "item": "ring_t3",
+          "grade": "epic"
+        }
+      ]
+    }
+  ]
+}

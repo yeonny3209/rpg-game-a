@@ -1,0 +1,363 @@
+{
+  "npcs": [
+    {
+      "id": "elder",
+      "name": "이장",
+      "title": "새벽 마을 이장",
+      "x": 0,
+      "z": 9,
+      "yaw": 180,
+      "entries": [
+        {
+          "quest": "q_rabbit_liver",
+          "state": "none",
+          "node": "elder_intro"
+        },
+        {
+          "quest": "q_rabbit_liver",
+          "state": "active",
+          "node": "elder_progress"
+        },
+        {
+          "quest": "q_rabbit_liver",
+          "state": "ready",
+          "node": "elder_ready"
+        },
+        {
+          "quest": "q_rabbit_liver",
+          "state": "completed",
+          "node": "elder_after"
+        }
+      ],
+      "defaultNode": "elder_after",
+      "visual": {
+        "model": "village_chief",
+        "shape": "humanoid",
+        "color": "#7a5c99",
+        "scale": 1.0
+      }
+    },
+    {
+      "id": "guard",
+      "name": "경비병",
+      "title": "마을 경비병",
+      "x": 5,
+      "z": -24,
+      "yaw": 180,
+      "entries": [
+        {
+          "quest": "q_rabbit_liver",
+          "state": "completed",
+          "node": "guard_after"
+        }
+      ],
+      "defaultNode": "guard_before",
+      "visual": {
+        "model": "village_guard",
+        "shape": "humanoid",
+        "color": "#4a6a8a",
+        "scale": 1.0
+      }
+    },
+    {
+      "id": "sword_master",
+      "name": "검술 스승",
+      "title": "수련장 · 동양 검사",
+      "x": 24,
+      "z": 22,
+      "yaw": 90,
+      "entries": [
+        {
+          "job": "eastern_swordsman",
+          "node": "sm_after"
+        },
+        {
+          "job": "any",
+          "node": "sm_other"
+        },
+        {
+          "job": "none",
+          "minLevel": 5,
+          "trial": "yes",
+          "node": "sm_running"
+        },
+        {
+          "job": "none",
+          "minLevel": 5,
+          "node": "sm_offer"
+        }
+      ],
+      "defaultNode": "sm_low",
+      "visual": {
+        "model": "master_sword_east",
+        "shape": "humanoid",
+        "color": "#8a4a3a",
+        "scale": 1.0
+      }
+    },
+    {
+      "id": "bow_master",
+      "name": "궁술 스승",
+      "title": "수련장 · 궁수",
+      "x": 24,
+      "z": 29,
+      "yaw": 90,
+      "entries": [
+        {
+          "job": "archer",
+          "node": "bm_after"
+        },
+        {
+          "job": "any",
+          "node": "bm_other"
+        },
+        {
+          "job": "none",
+          "minLevel": 5,
+          "trial": "yes",
+          "node": "bm_running"
+        },
+        {
+          "job": "none",
+          "minLevel": 5,
+          "node": "bm_offer"
+        }
+      ],
+      "defaultNode": "bm_low",
+      "visual": {
+        "model": "master_archer",
+        "shape": "humanoid",
+        "color": "#3a6a4a",
+        "scale": 1.0
+      }
+    },
+    {
+      "id": "mage_master",
+      "name": "마법 스승",
+      "title": "수련장 · 마법사",
+      "x": 24,
+      "z": 36,
+      "yaw": 90,
+      "entries": [
+        {
+          "job": "mage",
+          "node": "mm_after"
+        },
+        {
+          "job": "any",
+          "node": "mm_other"
+        },
+        {
+          "job": "none",
+          "minLevel": 5,
+          "trial": "yes",
+          "node": "mm_running"
+        },
+        {
+          "job": "none",
+          "minLevel": 5,
+          "node": "mm_offer"
+        }
+      ],
+      "defaultNode": "mm_low",
+      "visual": {
+        "model": "master_mage",
+        "shape": "humanoid",
+        "color": "#5a4a9a",
+        "scale": 1.0
+      }
+    },
+    {
+      "id": "assassin_master",
+      "name": "암살 스승",
+      "title": "수련장 · 암살자",
+      "x": 24,
+      "z": 43,
+      "yaw": 90,
+      "entries": [
+        {
+          "job": "assassin",
+          "node": "am_after"
+        },
+        {
+          "job": "any",
+          "node": "am_other"
+        },
+        {
+          "job": "none",
+          "minLevel": 5,
+          "trial": "yes",
+          "node": "am_running"
+        },
+        {
+          "job": "none",
+          "minLevel": 5,
+          "node": "am_offer"
+        }
+      ],
+      "defaultNode": "am_low",
+      "visual": {
+        "model": "master_assassin",
+        "shape": "humanoid",
+        "color": "#3a3a4a",
+        "scale": 1.0
+      }
+    },
+    {
+      "id": "western_master",
+      "name": "서양 검술 스승",
+      "title": "수련장 · 서양 검사",
+      "x": 31,
+      "z": 29,
+      "yaw": 270,
+      "entries": [
+        {
+          "job": "western_swordsman",
+          "node": "wm_after"
+        },
+        {
+          "job": "any",
+          "node": "wm_other"
+        },
+        {
+          "job": "none",
+          "minLevel": 5,
+          "trial": "yes",
+          "node": "wm_running"
+        },
+        {
+          "job": "none",
+          "minLevel": 5,
+          "node": "wm_offer"
+        }
+      ],
+      "defaultNode": "wm_low",
+      "visual": {
+        "model": "master_sword_west",
+        "shape": "humanoid",
+        "color": "#4a6aa0",
+        "scale": 1.0
+      }
+    },
+    {
+      "id": "warrior_master",
+      "name": "전사 스승",
+      "title": "수련장 · 전사",
+      "x": 31,
+      "z": 36,
+      "yaw": 270,
+      "entries": [
+        {
+          "job": "warrior",
+          "node": "wr_after"
+        },
+        {
+          "job": "any",
+          "node": "wr_other"
+        },
+        {
+          "job": "none",
+          "minLevel": 5,
+          "trial": "yes",
+          "node": "wr_running"
+        },
+        {
+          "job": "none",
+          "minLevel": 5,
+          "node": "wr_offer"
+        }
+      ],
+      "defaultNode": "wr_low",
+      "visual": {
+        "model": "master_warrior",
+        "shape": "humanoid",
+        "color": "#7a6a5a",
+        "scale": 1.0
+      }
+    },
+    {
+      "id": "buffer_master",
+      "name": "신전 사제",
+      "title": "수련장 · 버퍼",
+      "x": 31,
+      "z": 43,
+      "yaw": 270,
+      "entries": [
+        {
+          "job": "buffer",
+          "node": "bf_after"
+        },
+        {
+          "job": "any",
+          "node": "bf_other"
+        },
+        {
+          "job": "none",
+          "minLevel": 5,
+          "trial": "yes",
+          "node": "bf_running"
+        },
+        {
+          "job": "none",
+          "minLevel": 5,
+          "node": "bf_offer"
+        }
+      ],
+      "defaultNode": "bf_low",
+      "visual": {
+        "model": "master_priest",
+        "shape": "humanoid",
+        "color": "#e0c070",
+        "scale": 1.0
+      }
+    },
+    {
+      "id": "general_store",
+      "name": "잡화상",
+      "title": "마을 · 잡화점",
+      "x": -8,
+      "z": 1,
+      "yaw": 90,
+      "entries": [],
+      "defaultNode": "gs_hi",
+      "visual": {
+        "model": "village_chief",
+        "shape": "humanoid",
+        "color": "#c08040",
+        "scale": 1.0
+      }
+    },
+    {
+      "id": "weapon_store",
+      "name": "무기상",
+      "title": "마을 · 무기점",
+      "x": 8,
+      "z": 1,
+      "yaw": 270,
+      "entries": [],
+      "defaultNode": "ws_hi",
+      "visual": {
+        "model": "village_guard",
+        "shape": "humanoid",
+        "color": "#8a5a3a",
+        "scale": 1.0
+      }
+    },
+    {
+      "id": "armor_store",
+      "name": "방어구상",
+      "title": "마을 · 방어구점",
+      "x": 8,
+      "z": -5,
+      "yaw": 270,
+      "entries": [],
+      "defaultNode": "as_hi",
+      "visual": {
+        "model": "village_guard",
+        "shape": "humanoid",
+        "color": "#5a6a7a",
+        "scale": 1.0
+      }
+    }
+  ]
+}

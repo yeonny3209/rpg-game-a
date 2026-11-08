@@ -1,0 +1,22 @@
+{
+  "_comment": "첫 퀘스트(1권 6장 확정). 보상 규칙은 결정 Q2: 2레벨 미만이면 2레벨까지 채움, 이미 2레벨 이상이면 고정 경험치(exp).",
+  "quests": [
+    {
+      "id": "q_rabbit_liver",
+      "title": "이장의 첫 부탁",
+      "kind": "main",
+      "summary": "마을 남쪽 들판의 토끼를 잡아 토끼 간 10개를 모아 이장에게 가져가자.",
+      "giverNpc": "elder",
+      "objectives": [
+        { "type": "collect", "target": "rabbit_liver", "count": 10, "consume": true, "label": "토끼 간" }
+      ],
+      "rewards": {
+        "exp": 60,
+        "gold": 0,
+        "fillToLevel": 2,
+        "unlocks": ["equipment", "leaveStartArea"],
+        "items": []
+      }
+    }
+  ]
+}

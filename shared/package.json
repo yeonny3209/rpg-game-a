@@ -1,0 +1,7 @@
+{
+  "name": "com.rpg.shared",
+  "version": "0.1.0",
+  "displayName": "Game Shared",
+  "description": "Client/server shared code: protocol, data schemas, rules. Must stay C# 9 / netstandard2.1 and must not reference UnityEngine.",
+  "unity": "6000.0"
+}

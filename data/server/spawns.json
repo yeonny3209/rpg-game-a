@@ -1,0 +1,14 @@
+{
+  "_comment": "서버 전용. 몬스터 배치. 늑대는 결정 Q3대로 들판 서쪽 가장자리(시작 지역 안).",
+  "spawns": [
+    { "monster": "rabbit", "x": 0, "z": -52, "radius": 20, "count": 14 },
+    { "monster": "rabbit", "x": 42, "z": -28, "radius": 11, "count": 6 },
+    { "monster": "wolf", "x": -58, "z": -64, "radius": 4, "count": 1 },
+    { "monster": "boar", "x": 62, "z": -18, "radius": 10, "count": 6 },
+    { "monster": "spider", "x": -70, "z": 40, "radius": 9, "count": 4 },
+    { "monster": "bear", "x": 70, "z": 62, "radius": 7, "count": 2 },
+    { "monster": "training_dummy", "x": 30, "z": 21, "radius": 0.5, "count": 1 },
+    { "monster": "training_dummy", "x": 30, "z": 26, "radius": 0.5, "count": 1 },
+    { "monster": "training_dummy", "x": 30, "z": 31, "radius": 0.5, "count": 1 }
+  ]
+}
